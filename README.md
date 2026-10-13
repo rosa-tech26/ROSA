@@ -1,6 +1,6 @@
-# ROSA
+# ROSA - Remediation Orchestration System Administration
 
-- **Author**:        rosa-tech26
+- **Author**:        Gavin Mccollin
 - **Description**:   Self-hosted IT auto-remediation dashboard — watches alerts, runs Ansible playbooks automatically, and drafts fixes with Claude for anything it hasn't seen before
 - **Version**:       1.0.0
 
