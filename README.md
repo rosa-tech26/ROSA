@@ -18,6 +18,15 @@ ROSA closes the loop between an alert firing and the fix actually happening. It 
 - A full audit trail of every action taken, so nothing runs invisibly
 - Configuration drift detection across every managed server
 
+## How It Works
+
+1. **An alert fires** — from Prometheus/Alertmanager, Slack, RSS, or the VM Monitor
+2. **The rule engine checks it** against `rules.yaml`
+   - **Match found** → the matching Ansible playbook runs automatically, result logged on the Actions page
+   - **No match** → (if AI Resolutions is enabled) the AI drafts a new rule + playbook and queues it for approval instead
+3. **You approve or reject** any AI proposal on the Approvals page — nothing AI-drafted runs without a human clicking Approve & Run
+4. **Approved fixes become permanent rules** — saved straight into `rules.yaml` and `ansible/`, so the next alert of that type is handled by the rule engine directly, no AI call needed
+
 ## Dashboard
 
 ![ROSA dashboard — live alert feed with an AI-suggested fix](screenshots/dashboard.png)
@@ -63,6 +72,13 @@ ROSA runs automated actions on production infrastructure, so safety is built in 
 - **AI proposals always require human approval** — see AI Resolutions above; the AI never runs code it wrote without a human clicking Approve & Run, and it's capped at 3 attempts per issue.
 - **Encrypted credentials at rest** — server passwords are Ansible-Vault encrypted, never stored in plaintext; the app's own secret key is encrypted at rest (DPAPI) after first run.
 - **Full audit trail** — every action taken, by a rule or by AI, is logged and visible on the Actions page.
+
+## Requirements
+
+- **Core app** — Windows 10/11 or Windows Server, no other dependencies (the installer bundles its own runtime)
+- **VM Monitor** (optional, for agent-free server polling) — requires WSL2 with Ansible installed; without it, VM Monitor fails silently in the UI (check the logs)
+- **Alertmanager ingestion** (optional) — requires an existing Prometheus + Alertmanager setup elsewhere, pointed at ROSA's webhook (Settings → Prometheus/Alertmanager)
+- **AI Resolutions** (optional) — requires an API key for the AI provider, entered under Settings → AI Integration
 
 ## Download
 
