@@ -75,7 +75,9 @@ Grab the latest installer from the [Releases](../../releases) page: `ROSA-Setup.
 
 ## Licensing
 
-Free tier covers up to 3 monitored servers, self-hosted, no account required. Need more servers? A license key unlocks higher caps — see Settings → License.
+**Early release — this is actively being tested.** Free tier is currently capped at 3 monitored servers while in this stage, self-hosted, no account required. Feedback, bug reports, and feature requests are very welcome — [open an issue](../../issues).
+
+Need more servers? A license key unlocks higher caps — see Settings → License.
 
 ## Release Notes
 
