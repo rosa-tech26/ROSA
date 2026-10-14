@@ -14,6 +14,14 @@ ROSA closes the loop between an alert firing and the fix actually happening. It 
 - A full audit trail of every action taken, so nothing runs invisibly
 - Configuration drift detection across every managed server
 
+## Screenshots
+
+![ROSA dashboard — live alert feed with an AI-suggested fix](screenshots/dashboard.png)
+
+![AI analysis suggesting a remediation action for a memory alert](screenshots/ai-suggested-fix.png)
+
+![AI Resolutions audit trail — a drafted playbook, approved and run](screenshots/ai-resolution-audit.png)
+
 ## Features
 
 - **Alert ingestion** — Prometheus/Alertmanager, Slack, RSS feeds, or ROSA's own lightweight agent-free VM monitor
