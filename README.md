@@ -18,6 +18,8 @@ ROSA closes the loop between an alert firing and the fix actually happening. It 
 
 ![ROSA dashboard — live alert feed with an AI-suggested fix](screenshots/dashboard.png)
 
+![AI Playbook Approvals — a drafted rule and playbook with reasoning, confidence, and editable YAML, awaiting approval](screenshots/ai-playbook-approval.png)
+
 ![AI analysis suggesting a remediation action for a memory alert](screenshots/ai-suggested-fix.png)
 
 ![AI Resolutions audit trail — a drafted playbook, approved and run](screenshots/ai-resolution-audit.png)
