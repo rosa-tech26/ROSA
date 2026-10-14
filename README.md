@@ -1,5 +1,9 @@
 # ROSA - Remediation Orchestration System Administration
 
+![Latest release](https://img.shields.io/github/v/release/rosa-tech26/ROSA)
+![Platform](https://img.shields.io/badge/platform-Windows-blue)
+![License](https://img.shields.io/badge/license-Proprietary-lightgrey)
+
 - **Author**:        Gavin Mccollin
 - **Description**:   Self-hosted IT auto-remediation dashboard — watches alerts, runs Ansible playbooks automatically, and drafts fixes with AI for anything it hasn't seen before
 - **Version**:       1.0.2
@@ -46,6 +50,17 @@ When a rule-free alert comes in, something ROSA has genuinely never seen before.
 - AI-authored rules are named with an **`[AI]`** prefix and carry `ai_generated: true` in `rules.yaml`
 - AI-authored playbook files get an `AI-GENERATED` header comment (who approved it, when, which issue)
 - AI-run actions show a purple **AI** badge on the Dashboard and Actions pages — nothing AI-driven ever blends in with hand-written rules
+
+## Safety
+
+ROSA runs automated actions on production infrastructure, so safety is built in at multiple layers, not bolted on:
+
+- **WhatIf / dry-run mode** — simulate every remediation action without executing it: no files deleted, no processes killed, no configs touched. Reports show exactly what *would* happen before you ever flip it to live.
+- **Safe Mode disk cleanup** — only ever touches temp files, the recycle bin, and logs older than 30 days (configurable). It doesn't take arbitrary cleanup actions on a drive.
+- **Approval gates on risky actions** — service restarts and process kills require explicit approval by default, even outside the AI flow.
+- **AI proposals always require human approval** — see AI Resolutions above; the AI never runs code it wrote without a human clicking Approve & Run, and it's capped at 3 attempts per issue.
+- **Encrypted credentials at rest** — server passwords are Ansible-Vault encrypted, never stored in plaintext; the app's own secret key is encrypted at rest (DPAPI) after first run.
+- **Full audit trail** — every action taken, by a rule or by AI, is logged and visible on the Actions page.
 
 ## Download
 
