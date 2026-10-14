@@ -2,7 +2,7 @@
 
 - **Author**:        Gavin Mccollin
 - **Description**:   Self-hosted IT auto-remediation dashboard — watches alerts, runs Ansible playbooks automatically, and drafts fixes with Claude for anything it hasn't seen before
-- **Version**:       1.0.0
+- **Version**:       1.0.1
 
 ## Introduction
 
@@ -38,6 +38,9 @@ Free tier covers up to 3 monitored servers, self-hosted, no account required. Ne
 
 ## Release Notes
 
+- **v1.0.1** / 2026-10-14
+  - VM Monitor now automatically takes over alert collection whenever Alertmanager is disabled in Settings
+  - Removed two demo/utility playbooks (Delete_Text_Files, Eject_DVD) not relevant to production use
 - **v1.0.0** / 2026-10-13
   - First public release
 
