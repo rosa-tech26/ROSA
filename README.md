@@ -20,12 +20,12 @@ ROSA closes the loop between an alert firing and the fix actually happening. It 
 
 ## How It Works
 
-1. **An alert fires** — from Prometheus/Alertmanager, Slack, RSS, or the VM Monitor
-2. **The rule engine checks it** against `rules.yaml`
+1. **An alert fires** — from Prometheus/Alertmanager, Slack, RSS, or via inbuilt Monitor
+2. **The rule engine checks it** 
    - **Match found** → the matching Ansible playbook runs automatically, result logged on the Actions page
    - **No match** → (if AI Resolutions is enabled) the AI drafts a new rule + playbook and queues it for approval instead
 3. **You approve or reject** any AI proposal on the Approvals page — nothing AI-drafted runs without a human clicking Approve & Run
-4. **Approved fixes become permanent rules** — saved straight into `rules.yaml` and `ansible/`, so the next alert of that type is handled by the rule engine directly, no AI call needed
+4. **Approved fixes become permanent rules** — saved straight into rules and ansible playbook, so the next alert of that type is handled by the rule engine directly, no AI call needed
 
 ## Dashboard
 
@@ -34,7 +34,7 @@ ROSA closes the loop between an alert firing and the fix actually happening. It 
 
 ## Features
 
-- **Alert ingestion** — Prometheus/Alertmanager, Slack, RSS feeds, or ROSA's own lightweight agent-free VM monitor
+- **Alert ingestion** — Prometheus/Alertmanager, Slack, RSS feeds, or ROSA's own lightweight agent-free inbuilt Monitor
 - **Rule-based auto-remediation** — YAML rule engine + Ansible playbooks, fully editable
 - **AI Resolutions (opt-in)** — when no rule matches, the AI proposes a new rule + playbook; every proposal is queued on the Approvals page and capped at 3 attempts per issue — it never runs an unapproved AI fix
 - **Configuration drift detection** — flags changes you didn't make, across every server
