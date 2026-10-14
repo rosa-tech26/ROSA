@@ -35,11 +35,12 @@ ROSA closes the loop between an alert firing and the fix actually happening. It 
 
 ## AI Resolutions
 
-When a rule-free alert comes in — something ROSA has genuinely never seen before — the AI drafts a new rule and a new Ansible playbook for it, explains its root-cause reasoning, and scores its own confidence. Nothing is saved or run until a human clicks **Approve & Run** on the Approvals page; both the rule and the playbook are fully editable right there before you approve them.
+When a rule-free alert comes in, something ROSA has genuinely never seen before. The AI drafts a new rule and a new Ansible playbook for it. Also explains its root-cause reasoning, and scores its own confidence. Nothing is saved or run until a human clicks **Approve & Run** on the Approvals page. Note both the rule and the playbook are fully editable right there before you approve them.
 
-**Capped at 3 attempts, by design.** Each distinct issue (a host + a normalised alert signature) gets at most 3 AI attempts. This isn't just a safety limit — it keeps token spend bounded: the AI is never asked to re-think the same recurring problem on every single occurrence, only up to 3 times total. After 3 failed/rejected attempts, ROSA raises a critical alert for manual intervention instead of continuing to spend API calls on something it can't solve.
+**Capped at 3 attempts, by design.** Each distinct issue (a host + a normalised alert signature) gets at most 3 AI attempts. This isn't just a safety limit it keeps token spend in check. The AI is never asked to re-think the same recurring problem on every single occurrence, only up to 3 times total. After 3 failed/rejected attempts, ROSA raises a critical alert for manual intervention instead of continuing to spend API calls on something it can't solve.
 
-**It gets cheaper over time, not more expensive.** The moment a proposal is approved, the rule is written straight into `rules.yaml` and the playbook into `ansible/`. Every *future* alert matching that same pattern is now handled by the ordinary rule engine — no AI call, no token spend, no approval needed. In other words, AI Resolutions only ever pays the "thinking" cost once per distinct problem; after that, it's a normal auto-remediation rule like any other.
+
+**Loop free and cheaper over time, not more expensive.** The moment a proposal is approved, the rule is written straight into rules and  playbook. Every *future* alert matching that same pattern is now handled by the ordinary rule engine. Meaning no AI call, no token spend, no approval needed. In other words, AI Resolutions only ever pays the "thinking" cost once per problem after that, it's a normal auto-remediation rule like any other.
 
 **Every AI touch is clearly tagged**, so you always know what came from a human and what came from AI:
 - AI-authored rules are named with an **`[AI]`** prefix and carry `ai_generated: true` in `rules.yaml`
