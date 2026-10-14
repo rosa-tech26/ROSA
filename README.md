@@ -87,7 +87,6 @@ Need more servers? A license key unlocks higher caps — see Settings → Licens
   - Fixed a crash in the VM Monitor scheduler (app context error) introduced in v1.0.1
 - **v1.0.1** / 2026-10-14
   - VM Monitor now automatically takes over alert collection whenever Alertmanager is disabled in Settings
-  - Removed two demo/utility playbooks (Delete_Text_Files, Eject_DVD) not relevant to production use
 - **v1.0.0** / 2026-10-13
   - First public release
 
