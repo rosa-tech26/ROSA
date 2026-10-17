@@ -84,11 +84,6 @@ ROSA runs automated actions on production infrastructure, so safety is built in 
 
 Grab the latest installer from the [Releases](../../releases) page: `ROSA-Setup.msi`.
 
-1. Run the installer (Windows)
-2. Open `http://localhost:5001`
-3. Log in with `admin` / `changeme`
-4. **Change the default password immediately** under Settings
-
 ## Licensing
 
 **Early release — this is actively being tested.** Free tier is currently capped at 3 monitored servers while in this stage. 
