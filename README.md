@@ -6,7 +6,7 @@
 
 - **Author**:        Gavin Mccollin
 - **Description**:   Self-hosted IT auto-remediation dashboard — watches alerts, runs Ansible playbooks automatically, and drafts fixes with AI for anything it hasn't seen before
-- **Version**:       1.0.2
+
 
 ## Introduction
 
