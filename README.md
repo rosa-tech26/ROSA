@@ -29,7 +29,8 @@ ROSA closes the loop between an alert firing and the fix actually happening. It 
 
 ## Dashboard
 
-![ROSA dashboard — live alert feed with an AI-suggested fix](screenshots/dashboard.png)
+<img width="1892" height="811" alt="dashboard" src="https://github.com/user-attachments/assets/6d832d0f-d0e3-4a3e-89f9-1a3b991b6e3e" />
+
 
 
 ## Features
@@ -47,14 +48,17 @@ When a rule-free alert comes in, something ROSA has genuinely never seen before.
 
 **Capped at 3 attempts, by design.** Each distinct issue (a host + a normalised alert signature) gets at most 3 AI attempts. This isn't just a safety limit it keeps token spend in check. The AI is never asked to re-think the same recurring problem on every single occurrence, only up to 3 times total. After 3 failed/rejected attempts, ROSA raises a critical alert for manual intervention instead of continuing to spend API calls on something it can't solve.
 
-![AI Playbook Approvals — a drafted rule and playbook with reasoning, confidence, and editable YAML, awaiting approval](screenshots/ai-playbook-approval.png)
+<img width="1323" height="904" alt="playbook" src="https://github.com/user-attachments/assets/7c635f5f-3983-4541-b54c-121e5837e64a" />
 
-![AI Resolutions audit trail — a drafted playbook, approved and run](screenshots/ai-resolution-audit.png)
+
+<img width="1843" height="784" alt="AI auto fix" src="https://github.com/user-attachments/assets/701975ce-2a1c-4114-87a9-679e2df53451" />
+
 
 
 **Loop free and cheaper over time, not more expensive.** The moment a proposal is approved, the rule is written straight into rules and  playbook. Every *future* alert matching that same pattern is now handled by the ordinary rule engine. Meaning no AI call, no token spend, no approval needed. In other words, AI Resolutions only ever pays the "thinking" cost once per problem after that, it's a normal auto-remediation rule like any other.
 
-![AI analysis suggesting a remediation action for a memory alert](screenshots/ai-suggested-fix.png)
+<img width="1229" height="838" alt="auto fix" src="https://github.com/user-attachments/assets/bd72c93a-0d66-410a-ae90-53724375dc4e" />
+
 
 
 **Every AI touch is clearly tagged**, so you always know what came from a human and what came from AI:
